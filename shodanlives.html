@@ -6,9 +6,9 @@
 {block:Description}
 <meta name="description" content="{MetaDescription}" />
 {/block:Description}
-<title>{Title} {block:PostTitle} | {PostTitle} {/block:PostTitle}</title>
+<title>{block:PostTitle} {PostTitle} | {/block:PostTitle} {Title} </title>
 <link rel="shortcut icon" href="{Favicon}" />
-<link rel="alternate" type="application/rss+xml" href="{RSS}" />
+<link rel="alternate" type="application/rss+xml" href="http://feeds.feedburner.com/shodanlives" />
 <meta name="viewport"  content="width=660"/>
 <link rel="apple-touch-icon" href="{PortraitURL-128}" />
 <!--
@@ -16,7 +16,8 @@
 <meta name="text:Disqus Shortname" content="" />
 -->
 <style type="text/css" media="screen">
-/* -----------------------------------------	 RESET  ---------------------------------------- */
+
+/*** css reset ***/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
 	margin: 0;
 	padding: 0;
@@ -54,7 +55,7 @@ blockquote, q {
 	quotes: "" "";
 }
 
-/* -------------------------------  TYPOGRAPHY  -------------------------------------- */
+/*** typography ***/
 @font-face {
  font-family: 'Titillium Regular';
  src: url('http://static.tumblr.com/fyf8ofs/vFZl8jihz/titilliumtext22l003-webfont.eot');
@@ -96,7 +97,8 @@ em {
 	color: #333;
 	font-style: italic;
 }
-/* ------------------------------- BASIC LAYOUT  -------------------------------------- */
+
+/*** basic layout ***/
 html {
 	background: #fff url(http://static.tumblr.com/fyf8ofs/4eul8ji5x/bg.png);
 }
@@ -108,7 +110,8 @@ body {
 	margin: 0 auto;
 	min-height: 450px;
 }
-/* ------------------------------- HEADER  -------------------------------------- */
+
+/*** header ***/
 #header-wrap {
 	margin: 0 auto;
 	width: 860px;
@@ -194,7 +197,8 @@ body {
 .random {
 	background: url(http://static.tumblr.com/fyf8ofs/yPPl8l0lm/random.png) no-repeat;
 }
-/* ------------------------------- SIDEBAR  -------------------------------------- */
+
+/*** sidebar ***/
 #sidebar {
 	width: 160px;
 	float: left;
@@ -246,13 +250,14 @@ body {
 	color: #aaa
 	width: 148px;
 }
-/* ------------------------------- CONTENT  -------------------------------------- */	
+
+/*** content ***/	
 #content {
 	padding-top: 10em;
 }
 .post, #disqus_thread {
 	width: 500px;
-	margin: 0 40px 7em 0;
+	margin: 0 40px 5em 0;
 	float: right;
 	position: relative;
 	z-index: 1;
@@ -273,6 +278,18 @@ body {
 	color: #555;
 }
 .post h2 a {
+	line-height: 24px;
+}
+.post h3, .text h3 {
+	float: left;
+	margin-bottom: 10px;
+	width: 100%;
+	font-size: 1.2em;
+}
+.post h3 a, .text h3 a {
+	color: #555;
+}
+.post h3 a {
 	line-height: 24px;
 }
 .permalink {
@@ -368,7 +385,8 @@ a:hover .permalink {
 .comments a:hover {
 	color: #222;
 }
-/* ------------------------------- LISTS  -------------------------------------- */
+
+/*** lists ***/
 .post ul, ol {
 	margin: 0 0 1.5em 40px;
 }
@@ -408,7 +426,8 @@ ol.notes li img:hover {
 	opacity: 1;
 	filter:alpha(opacity=100);
 }
-/* ------------------------------- QUOTE  -------------------------------------- */	
+
+/*** quote ***/
 .quote p.quote-text, .text blockquote {
 	border-left: 1px solid #ddd;
 	padding-left: 20px;
@@ -425,7 +444,8 @@ ol.notes li img:hover {
 	margin-top: 1em;
 	color: #777;
 }
-/* ------------------------------- CONVERSATION  -------------------------------------- */
+
+/*** conversation ***/
 #content .conversation {
 	line-height: 2em;
 }
@@ -441,7 +461,8 @@ ol.notes li img:hover {
 .member1 .label {
 	color: #b47428; /* orange-brown */
 }
-/* ------------------------------- LINK  -------------------------------------- */
+
+/*** links ***/
 .post.link h2 {
 	margin-bottom: .8em;
 }
@@ -452,13 +473,22 @@ ol.notes li img:hover {
 .post.link h2 a:hover, .post.link h2 a:hover {
 	color: #222;
 }
-/* ------------------------------- TEXT  -------------------------------------- */
-.text p, .audio p, .link p {
+
+/*** text ***/
+.text p, .audio p, .link p, .audio p, .photo p, .video p {
 	margin: 0 0 1.5em 0;
 }
 .text p img {
 	background: #fff;
 	border: 1px solid #ddd;
+}
+.text .img-left {
+	float: left;
+	margin: 0 8px 5px 0;
+}
+.text .img-right {
+	float: right;
+	margin: 0 0 5px 8px;
 }
 .post p {
 	clear: left;
@@ -487,17 +517,19 @@ ol.notes li img:hover {
 .read_more:hover {
 	border: 1px solid #777;
 }
-/* ------------------------------- PHOTO and VIDEO  -------------------------------------- */
+
+/*** photo and video ***/
 .photo p, .video p, .audio p, #footer {
 	color: #aaa;
 }
 .post a img, .photo img, .photo a img, .video object {
-	margin-bottom: 1.5em;
+	margin-bottom: 1.0em;
 }
 .video-caption {
 	margin-top: 15px;
 }
-/* ------------------------------- AUDIO  -------------------------------------- */
+
+/*** audio ***/
 .audio embed {
 	padding: 3px;
 	background: #eee;
@@ -517,7 +549,8 @@ span.playcount {
 	font-size: .9em;
 	color: #999;
 }
-/* ------------------------------- NAVIGATION  -------------------------------------- */
+
+/*** navigation ***/
 #navigation {
 	margin-bottom: 30px;
 	padding: .5em 0;
@@ -530,7 +563,8 @@ span.playcount {
 #navigation span.page_number {
 	color: #d0d0d0;
 }
-/* ------------------------------- FOOTER  -------------------------------------- */
+
+/*** footer ***/
 #footer {
 	width: 860px;
 	height: 4em;
@@ -568,7 +602,8 @@ span.playcount {
 	padding-right: 49px;
 	line-height: 4em;
 }
-/* ------------------------------- TAGS  -------------------------------------- */
+
+/*** tags ***/
 .tags, .post .tags {
 	height: 24px;
 	padding: .7em 0 0 0;
@@ -598,7 +633,8 @@ span.playcount {
 	color: #fff;
 	border: 1px solid #ccc;
 }
-/* ------------------------------- FORMS  -------------------------------------- */
+
+/*** forms ***/
 input, #search {
 	padding: 5px;
 	background: #f9f9f9;
@@ -631,7 +667,19 @@ input:focus, #search:focus {
 	text-transform: uppercase;
 	font-size: .8em;
 }
-/* ------------------------------- WEBKIT TRANSITION  -------------------------------------- */
+
+/*** gist embeds ***/
+.gist .gist-file .gist-data {
+	background-color:#fff!important;
+	border:1px solid #cfcece!important;
+	overflow:hidden;
+	overflow-y:auto;
+	max-height:400px;
+	margin:9px!important;
+	padding:10px 9px 9px!important;
+}
+
+/*** webkit transition ***/
 a, .permalink, input.button, #header h1 a, a img, #description, .read_more {
 	-webkit-transition: all 0.16s ease-in;
 	-moz-transition : all 0.16s ease-in;
@@ -655,7 +703,7 @@ a, .permalink, input.button, #header h1 a, a img, #description, .read_more {
 <meta name="color:Quote" content="#b47428"/>
 
 <style type="text/css" media="screen">
-/* CUSTOM COLORS */			
+/*** custom colors ***/
 body { color: {color:Text}; }
 a, #menu li a:hover, #ask a:hover, .post h2 a:hover, .text h2 a:hover, a.read_more:hover, #twitter h3 a:hover { color: {color:Links}; }
 a:hover { color: {color:Links Hover}; }
@@ -678,7 +726,7 @@ a:hover { color: {color:Links Hover}; }
         <span id="description"> {block:Description}
         {Description}
         {/block:Description} </span>
-        <div id="header-right"> <a href="/archive" class="archive" title="Archive">Archive</a> <a href="{RSS}" class="rss" title="RSS Feed">RSS</a> <a href="/random" class="random" title="Random Post">Random</a> </div>
+        <div id="header-right"> <a href="/archive" class="archive" title="Archive">Archive</a> <a href="http://feeds.feedburner.com/shodanlives" class="rss" title="RSS Feed">RSS</a> <a href="/random" class="random" title="Random Post">Random</a> </div>
     </div>
 </div>
 <div id="wrap">
@@ -703,14 +751,14 @@ a:hover { color: {color:Links Hover}; }
                     <!-- Twitter -->
         {block:Twitter}
     <div id="twitter">
-        <h3><a href="http://twitter.com/{TwitterUsername}">Twitter</a></h3>
+        <h3><a href="http://twitter.com/{TwitterUsername}">@colemanm</a></h3>
         
         <ul id="tweets"></ul>        
     </div>
     
     <script type="text/javascript">
         function recent_tweets(data) {
-            for (i=0; i<1; i++) {
+            for (i=0; i<3; i++) {
                 document.getElementById("tweets").innerHTML = 
                     document.getElementById("tweets").innerHTML + 
                     '<li>' + data[i].text + '</li>';
@@ -921,7 +969,7 @@ var disqus_shortname = 'shodanlives';
 
 <!-- Footer -->
 <div id="footer">
-    <div class="copyright">&copy; {Title} 2010</div>
+    <div class="copyright">&copy; {Title} 2011</div>
     <div class="attribution"><a href="http://callistotheme.tumblr.com">Callisto Theme</a> by <a href="http://lathemes.com">LaThemes</a></div>
 </div>
 <!-- Twitter -->
